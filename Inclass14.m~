@@ -38,7 +38,6 @@ fusedMask(sublist)=1;
 %figure (5); imshow(fusedMask, []);
 
 %This is with distance transformation
-
 distt=bwdist(fusedMask);
 %imshow(fmask,[]);
 D=bwdist(~fusedMask);
@@ -50,6 +49,7 @@ L=watershed(D);
 rgb=label2rgb(L,'jet',[.5 .5 .5 ]);
 dmask=L>1 | (img3-fusedMask);
 figure (4); imshow(dmask, 'InitialMagnification','fit');
+
 
 % with erosion mask
 
@@ -69,11 +69,4 @@ L3=watershed(basin);
 newnmask=L3>1 | (img3-fusedMask);
 figure(9); imshow(newnmask,[]);
 
-%Miguel Angel: The Erosion mask seems to be cleaner, although a lot of big
-%cells don't get watershed, this has to be to the relationship between the
-%area and what I denomated "big". I used the mean area + stdev, but perhaps
-%there are fused cells closely lower to that value and that's why they
-%don't get picked up. For the distance transformation it seems to have
-%picked up more big cells, however I encountered the problem discussed in
-%class where we will get a lot of oversegmentation and that will need to
-%raise the minima or tell which minima to look for.
+%Miguel Angel: 
