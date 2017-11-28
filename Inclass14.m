@@ -1,4 +1,8 @@
 %Inclass 14
+%GB comments
+100 Could run a loop on the threshold parameters and define the “best” mask
+2a 100 
+2b 100
 
 %Work with the image stemcells_dapi.tif in this folder
 
